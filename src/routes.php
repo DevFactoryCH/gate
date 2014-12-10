@@ -1,0 +1,22 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the Closure to execute when that URI is requested.
+|
+*/
+
+$prefix = Config::get('gate::route_prefix');
+$before = Config::get('gate::filter_before');
+
+Route::group(array('prefix' => $prefix, 'before' => $before), function() use ($prefix) {
+
+  Route::resource('device', 'Devfactory\Gate\Controllers\DeviceController');
+  Route::resource('message', 'Devfactory\Gate\Controllers\MessageController');
+
+});

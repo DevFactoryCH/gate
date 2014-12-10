@@ -1,0 +1,25 @@
+{
+  "name": "devfactory/gate",
+  "description": "",
+  "license": "GPL-2.0",
+  "authors": [
+    {
+      "name": "Alcindo Da Costa",
+      "email": "alcindo.dacosta@devfactory.ch"
+    }
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "davibennun/laravel-push-notification": "dev-master",
+    "illuminate/support": "4.2.*"
+  },
+  "autoload": {
+    "classmap": [
+      "src/migrations"
+    ],
+    "psr-4": {
+      "Devfactory\\Gate\\": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}
