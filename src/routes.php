@@ -19,4 +19,6 @@ Route::group(array('prefix' => $prefix, 'before' => $before), function() use ($p
   Route::resource('device', 'Devfactory\Gate\Controllers\DeviceController');
   Route::resource('message', 'Devfactory\Gate\Controllers\MessageController');
 
+  Route::model('message', 'Devfactory\Gate\Models\Message');
+  Route::post('push/{message}', array('as' => 'gate.push', 'uses' => 'PushController@send'));
 });
