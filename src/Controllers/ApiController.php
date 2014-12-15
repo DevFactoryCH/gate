@@ -1,7 +1,11 @@
 <?php
 namespace Devfactory\Gate\Controllers;
 
+use Devfactory\Gate\Models\Device;
+
 use Response;
+use Input;
+use Validator;
 
 class ApiController extends \Devfactory\Gate\Controllers\GateController
 {
