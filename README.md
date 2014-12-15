@@ -142,7 +142,6 @@ Content-Type: text/html
 ___
 ["Device Created"]
 ```
-```
 
 ####Bad Response
 ```
