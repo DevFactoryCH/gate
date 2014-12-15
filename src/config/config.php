@@ -24,6 +24,19 @@ return array(
 
   /*
 	|--------------------------------------------------------------------------
+	| Gate route services prefix
+	|--------------------------------------------------------------------------
+	|
+	| You can use this param to set the prefix before the services routes
+  | This package provide one service used by the android app
+  |  - /route_services_prefix/gate/register.json
+	|
+  | example : service/
+	*/
+  'route_services_prefix' => '',
+
+  /*
+	|--------------------------------------------------------------------------
 	| Gate filter before
 	|--------------------------------------------------------------------------
 	|

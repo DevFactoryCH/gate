@@ -22,41 +22,87 @@ update `app.php` file in `app/config` directory:
 ```php
 'providers' => array(
   'Devfactory\Gate\GateServiceProvider',
-  'Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider',
+  'Devfactory\Api\ApiServiceProvider',
 ),
 ```
 
 ```php
-'aliases' => array(
-    'PushNotification' => 'Davibennun\LaravelPushNotification\Facades\PushNotification'
-)
+alias => array(
+    'API'          => 'Devfactory\Api\Facades\ApiFacade',
+),
 ```
+
 
 ##Configuration
 ```
  php artisan config:publish devfactory/gate
- php artisan config:publish davibennun/laravel-push-notification
 ```
 
-Update the configuration for the laravel-push-notification
+Update the configuration for the gate
 ```
  <?php
 
-return array(
-    'gateAndroid' => array(
-        'environment' =>'production',
-        'apiKey'      =>'1234',
-        'service'     =>'gcm'
-    ),
-    'gateAndroid' => array(
-        'environment' =>'testing',
-        'apiKey'      =>'4321',
-        'service'     =>'gcm'
-    ),
-);
+
+  /*
+  |--------------------------------------------------------------------------
+  | Gate environement
+  |--------------------------------------------------------------------------
+  |
+  | Setup for the environement
+  |
+  */
+  'production' => TRUE,
+
+  /*
+  |--------------------------------------------------------------------------
+  | Gate route prefix
+  |--------------------------------------------------------------------------
+  |
+  | You can use this param to set the prefix before the routes
+  |
+  */
+  'route_prefix' => 'admin',
+
+  /*
+  |--------------------------------------------------------------------------
+  | Gate filter before
+  |--------------------------------------------------------------------------
+  |
+  | You can set the filter who will be used to display the page
+  |
+  */
+  'filter_before' => 'admin-auth',
+
+  /*
+  |--------------------------------------------------------------------------
+  | Gate layout extend
+  |--------------------------------------------------------------------------
+  |
+  | You can use this param to set the layout to extend for the admin
+  |
+  */
+  'layout_extend' => 'gate::layout',
+
+  /*
+  |--------------------------------------------------------------------------
+  | Gate apiKey
+  |--------------------------------------------------------------------------
+  |
+  | You have to request an accèes to contact@devfactory.ch
+  |
+  */
+  'api_key' => '',
 ```
 
 ##Migration
 ```
  php artisan  migrate --package=devfactory/gate
+```
+
+##Routes
+You have those routes
+
+```
+[route_prefix]/device  //Where you can register your device who have the android app installed
+[route_prefix]/message //Where you can send some sms using the android app
 ```

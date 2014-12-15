@@ -20,5 +20,12 @@ Route::group(array('prefix' => $prefix, 'before' => $before), function() use ($p
   Route::resource('message', 'Devfactory\Gate\Controllers\MessageController');
 
   Route::model('message', 'Devfactory\Gate\Models\Message');
-  Route::post('push/{message}', array('as' => 'gate.push', 'uses' => 'PushController@send'));
+  Route::post('push/{message}', array('as' => 'gate.push', 'uses' => 'Devfactory\Gate\Controllers\PushController@send'));
+});
+
+$prefix_service = Config::get('gate::route_services_prefix');
+
+Route::group(array('prefix' => $prefix_service . 'gate'), function()
+{
+    Route::put('register.{format}', 'Devfactory\Gate\Controllers\ApiController@register');
 });
