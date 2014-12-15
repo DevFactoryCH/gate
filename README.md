@@ -3,6 +3,10 @@ Gate
 
 This app only work with Android
 
+[![Latest Stable Version](https://poser.pugx.org/devfactory/gate/v/stable.svg)](https://packagist.org/packages/devfactory/gate)
+[![Total Downloads](https://poser.pugx.org/devfactory/gate/downloads.svg)](https://packagist.org/packages/devfactory/gate)
+[![License](https://poser.pugx.org/devfactory/gate/license.svg)](https://packagist.org/packages/devfactory/gate)
+
 ##How to setup
 
 update `composer.json` file:
