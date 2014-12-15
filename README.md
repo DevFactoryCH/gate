@@ -99,10 +99,55 @@ Update the configuration for the gate
  php artisan  migrate --package=devfactory/gate
 ```
 
-##Routes
-You have those routes
+##Routes Admin
+You have those routes for the admin
 
 ```
 [route_prefix]/device  //Where you can register your device who have the android app installed
 [route_prefix]/message //Where you can send some sms using the android app
+```
+
+##Routes Services
+
+The `{format}` can be `json` or `xml`
+
+```
+PUT [route_services_prefix]/gate/register.{format}
+```
+
+
+####Parameters
+
+| Name          | Type          | Description  |
+| ------------- |:-------------:| :-----|
+| name          | string        | **Required.** The name of the device |
+| token         | string        | **Required.** The token of the device used for the push notification |
+| number        | string        | **Required.** The phone number of the device |
+
+
+
+####Example
+```
+{
+  "name": "test-phone1",
+  "token": "12kdi24kkk3233mk23n23n2",
+  "number": "0845668955"
+}
+```
+
+####Response
+```
+Status: 200 OK
+Content-Type: text/html
+___
+["Device Created"]
+```
+```
+
+####Bad Response
+```
+Status: 400 Bad Request
+Content-Type: text/html
+___
+["Bad inputs"]
 ```
